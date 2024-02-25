@@ -1,7 +1,14 @@
 from rest_framework import serializers
 from .models import Company, Employee
+from django.contrib.auth.models import User
 
 # create serializers here
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta(object):
+        model = User
+        fields = ['id', 'username', 'password', 'email']
 
 
 class CompanySerializer(serializers.HyperlinkedModelSerializer):
